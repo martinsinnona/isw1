@@ -225,21 +225,11 @@ numberOfSuspendedCustomers
 	
 	^suspended size! !
 
-!CustomerBook methodsFor: 'customer management' stamp: 'mc 4/12/2023 20:53:24'!
+!CustomerBook methodsFor: 'customer management' stamp: 'mc 4/12/2023 23:46:59'!
 removeCustomerNamed: aName 
 	
-	(active includes: aName) ifTrue:  [^(self removeCustomerNamed: aName fromCollection: active)].
-	(suspended includes: aName) ifTrue: [^(self removeCustomerNamed: aName fromCollection: suspended)].
-	
-	^ NotFound signal.
-! !
+	^active remove: aName ifAbsent: [ ^suspended remove: aName ifAbsent: [^ NotFound signal.].].
 
-!CustomerBook methodsFor: 'customer management' stamp: 'mc 4/12/2023 20:52:25'!
-removeCustomerNamed: aName fromCollection: aCollection 
-
-	aCollection remove: aName. 
-	^aName. 	
-	
 ! !
 
 !CustomerBook methodsFor: 'customer management' stamp: 'HernanWilkinson 7/6/2011 17:52'!
