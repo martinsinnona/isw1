@@ -1,0 +1,15 @@
+
+*.DS_Store
+**/cuis/*.changes
+CoreUpdates/
+Documentation/
+Packages/
+TrueTypeFonts/
+vm-jit/
+vmLiveTyping/
+vmLiveTyping-ARM/
+vmLiveTyping-Stack/
+._*
+*.sh
+*.image
+*.sources
