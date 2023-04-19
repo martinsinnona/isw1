@@ -14,3 +14,4 @@ vmLiveTyping-Stack/
 *.image
 *.sources
 *.bat
+cuis/ImageMorph class-defaultForm.st
