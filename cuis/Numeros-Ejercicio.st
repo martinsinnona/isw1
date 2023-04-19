@@ -286,7 +286,6 @@ setUp
 	fiveHalfs := five / two.
 	! !
 
-
 
 !classDefinition: #Numero category: 'Numero-Exercise'!
 Object subclass: #Numero
@@ -355,7 +354,7 @@ canNotDivideByZeroErrorDescription
 !Numero class methodsFor: 'error descriptions' stamp: 'NR 4/15/2021 16:42:09'!
 invalidNumberTypeErrorDescription
 	
-	^ 'Tipo de n√∫mero inv√°lido!!!!!!'! !
+	^ 'Tipo de n˙mero inv·lido!!!!!!'! !
 
 
 !classDefinition: #Entero category: 'Numero-Exercise'!
@@ -365,27 +364,16 @@ Numero subclass: #Entero
 	poolDictionaries: ''
 	category: 'Numero-Exercise'!
 
-!Entero methodsFor: 'arithmetic operations' stamp: 'ma 4/19/2023 00:19:34'!
+!Entero methodsFor: 'arithmetic operations' stamp: 'HernanWilkinson 5/7/2016 23:13'!
 * aMultiplier 
 	
-	(aMultiplier isKindOf: self class) ifTrue: 
-		[^self class with: value * aMultiplier integerValue. ]
-	ifFalse: 
-		[^aMultiplier class with: (self * aMultiplier numerator) over: aMultiplier denominator. ]
+	^self class with: value * aMultiplier integerValue
 	! !
 
-!Entero methodsFor: 'arithmetic operations' stamp: 'ma 4/19/2023 00:06:40'!
+!Entero methodsFor: 'arithmetic operations' stamp: 'HernanWilkinson 5/7/2016 23:13'!
 + anAdder 
 	
-	(anAdder isKindOf: self class) ifTrue: 
-		[^self class with: value + anAdder integerValue]
-	ifFalse: 
-		[	| newNumerator newDenominator |
-			
-			newNumerator  := (self * anAdder denominator) + anAdder numerator.
-			newDenominator := anAdder denominator.
-				
-			^anAdder class with: newNumerator over: newDenominator. ]
+	^self class with: value + anAdder integerValue
 ! !
 
 !Entero methodsFor: 'arithmetic operations' stamp: 'NR 9/23/2018 23:40:37'!
@@ -477,7 +465,7 @@ Entero class
 
 !Entero class methodsFor: 'instance creation' stamp: 'NR 4/15/2021 16:42:24'!
 negativeFibonacciErrorDescription
-	^ ' Fibonacci no est√° definido aqu√≠ para Enteros Negativos!!!!!!'! !
+	^ ' Fibonacci no est· definido aquÌ para Enteros Negativos!!!!!!'! !
 
 !Entero class methodsFor: 'instance creation' stamp: 'HernanWilkinson 5/7/2016 22:53'!
 with: aValue 
@@ -495,28 +483,21 @@ Numero subclass: #Fraccion
 	poolDictionaries: ''
 	category: 'Numero-Exercise'!
 
-!Fraccion methodsFor: 'arithmetic operations' stamp: 'ma 4/19/2023 00:20:56'!
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'HernanWilkinson 5/7/2016 23:14'!
 * aMultiplier 
-
-	(aMultiplier isKindOf: self class) ifTrue:	
-		[^ (numerator * aMultiplier numerator) / (denominator * aMultiplier denominator). ]
-	ifFalse: 
-		[^ aMultiplier * self]
+	
+	^(numerator * aMultiplier numerator) / (denominator * aMultiplier denominator)
 	! !
 
-!Fraccion methodsFor: 'arithmetic operations' stamp: 'ma 4/19/2023 00:10:03'!
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'HernanWilkinson 5/7/2016 23:14'!
 + anAdder 
 	
-	(anAdder isKindOf: self class) ifTrue:
-		
-		[| newNumerator newDenominator |
+	| newNumerator newDenominator |
 	
-		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
-		newDenominator := denominator * anAdder denominator.
-		
-		^ newNumerator / newDenominator. ]
+	newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+	newDenominator := denominator * anAdder denominator.
 	
-	ifFalse: [^ anAdder + self. ]! !
+	^newNumerator / newDenominator ! !
 
 !Fraccion methodsFor: 'arithmetic operations' stamp: 'NR 9/23/2018 23:43:50'!
 - aSubtrahend 

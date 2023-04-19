@@ -40,6 +40,22 @@ test07EnteroDividesEnteroCorrectly
 
 	self assert: two / two equals: one! !
 
+!NumeroTest methodsFor: 'tests' stamp: 'NR 9/8/2019 21:15:37'!
+test07FraccionAddsWithFraccionCorrectly
+"
+    La suma de fracciones es:
+	 
+	a/b + c/d = (a.d + c.b) / (b.d)
+	 
+	SI ESTAN PENSANDO EN LA REDUCCION DE FRACCIONES NO SE PREOCUPEN!!
+	TODAVIA NO SE ESTA TESTEANDO ESE CASO
+"
+	| sevenTenths |
+
+	sevenTenths := Numero with: (Numero with: 7) over: (Numero with: 10).
+
+	self assert: oneFifth + oneHalf equals: sevenTenths! !
+
 !NumeroTest methodsFor: 'tests' stamp: 'HernanWilkinson 5/7/2016 20:38'!
 test08FraccionAddsWithFraccionCorrectly
 "
@@ -56,6 +72,21 @@ test08FraccionAddsWithFraccionCorrectly
 
 	self assert: oneFifth + oneHalf equals: sevenTenths! !
 
+!NumeroTest methodsFor: 'tests' stamp: 'NR 9/8/2019 21:11:26'!
+test08FraccionMultipliesWithFraccionCorrectly
+"
+    La multiplicacion de fracciones es:
+	 
+	(a/b) * (c/d) = (a.c) / (b.d)
+"
+
+	self assert: oneFifth * twoFifth equals: twoTwentyfifth! !
+
+!NumeroTest methodsFor: 'tests' stamp: 'NR 9/8/2019 21:16:19'!
+test09AparentFraccionesAreEqual
+
+	self assert: oneHalf equals: (Numero with: two over: four)! !
+
 !NumeroTest methodsFor: 'tests' stamp: 'HernanWilkinson 5/7/2016 20:52'!
 test09FraccionMultipliesWithFraccionCorrectly
 "
@@ -65,6 +96,11 @@ test09FraccionMultipliesWithFraccionCorrectly
 "
 
 	self assert: oneFifth * twoFifth equals: twoTwentyfifth! !
+
+!NumeroTest methodsFor: 'tests' stamp: 'NR 9/8/2019 21:12:46'!
+test10AddingFraccionesCanReturnAnEntero
+
+	self assert: oneHalf + oneHalf equals: one! !
 
 !NumeroTest methodsFor: 'tests' stamp: 'HernanWilkinson 5/7/2016 20:56'!
 test10FraccionDividesFraccionCorrectly
@@ -84,10 +120,25 @@ test11EnteroAddsFraccionCorrectly
 
 	self assert: one + oneFifth equals: (Entero with: 6) / (Entero with: 5)! !
 
+!NumeroTest methodsFor: 'tests' stamp: 'NR 9/8/2019 21:26:23'!
+test11MultiplyingFraccionesCanReturnAnEntero
+
+	self assert: (twoFifth) * (fiveHalfs) equals: one! !
+
+!NumeroTest methodsFor: 'tests' stamp: 'NR 9/8/2019 21:13:21'!
+test12AFraccionCanNotBeZero
+
+	self deny: oneHalf isZero! !
+
 !NumeroTest methodsFor: 'tests' stamp: 'HernanWilkinson 5/7/2016 21:07'!
 test12FraccionAddsEnteroCorrectly
 
 	self assert: oneFifth + one equals: (Entero with: 6) / (Entero with: 5)! !
+
+!NumeroTest methodsFor: 'tests' stamp: 'NR 9/8/2019 21:13:30'!
+test13AFraccionCanNotBeOne
+
+	self deny: oneHalf isOne! !
 
 !NumeroTest methodsFor: 'tests' stamp: 'HernanWilkinson 5/7/2016 21:50'!
 test13EnteroMultipliesFraccionCorrectly
@@ -99,20 +150,40 @@ test14FraccionMultipliesEnteroCorrectly
 
 	self assert: oneFifth * two equals: twoFifth ! !
 
+!NumeroTest methodsFor: 'tests' stamp: 'NR 9/8/2019 21:14:16'!
+test14NegationOfEnteroIsCorrect
+
+	self assert: two negated equals: negativeTwo.! !
+
 !NumeroTest methodsFor: 'tests' stamp: 'HernanWilkinson 5/7/2016 21:57'!
 test15EnteroDividesFraccionCorrectly
 
 	self assert: one / twoFifth equals: fiveHalfs  ! !
+
+!NumeroTest methodsFor: 'tests' stamp: 'NR 9/24/2020 02:23:47'!
+test15NegationOfFraccionIsCorrect
+
+	self assert: oneHalf negated equals: negativeOneHalf! !
 
 !NumeroTest methodsFor: 'tests' stamp: 'HernanWilkinson 5/7/2016 21:59'!
 test16FraccionDividesEnteroCorrectly
 
 	self assert: twoFifth / five equals: twoTwentyfifth ! !
 
+!NumeroTest methodsFor: 'tests' stamp: 'NR 9/8/2019 21:29:45'!
+test16SignIsCorrectlyAssignedToFractionWithTwoNegatives
+
+	self assert: oneHalf equals: (Numero with: negativeOne over: negativeTwo)! !
+
 !NumeroTest methodsFor: 'tests' stamp: 'HernanWilkinson 5/7/2016 22:38'!
 test17AFraccionCanBeEqualToAnEntero
 
 	self assert: two equals: four / two! !
+
+!NumeroTest methodsFor: 'tests' stamp: 'NR 9/8/2019 21:30:07'!
+test17SignIsCorrectlyAssignedToFractionWithNegativeDivisor
+
+	self assert: oneHalf negated equals: (Numero with: one over: negativeTwo)! !
 
 !NumeroTest methodsFor: 'tests' stamp: 'HernanWilkinson 5/7/2016 22:39'!
 test18AparentFraccionesAreEqual
@@ -286,7 +357,6 @@ setUp
 	fiveHalfs := five / two.
 	! !
 
-
 
 !classDefinition: #Numero category: 'Numero-Exercise'!
 Object subclass: #Numero
@@ -341,6 +411,9 @@ isZero
 
 	self subclassResponsibility ! !
 
+
+
+
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
 !classDefinition: 'Numero class' category: 'Numero-Exercise'!
@@ -357,6 +430,7 @@ invalidNumberTypeErrorDescription
 	
 	^ 'Tipo de número inválido!!!!!!'! !
 
+
 
 !classDefinition: #Entero category: 'Numero-Exercise'!
 Numero subclass: #Entero
@@ -365,27 +439,28 @@ Numero subclass: #Entero
 	poolDictionaries: ''
 	category: 'Numero-Exercise'!
 
-!Entero methodsFor: 'arithmetic operations' stamp: 'ma 4/19/2023 00:19:34'!
+!Entero methodsFor: 'as yet unclassified' stamp: 'ma 4/18/2023 20:39:01'!
+initializeWith: aValue
+	
+	value := aValue! !
+
+!Entero methodsFor: 'as yet unclassified' stamp: 'ma 4/18/2023 21:21:45'!
+negated
+	
+		^self * (self class with: -1)
+! !
+
+
+!Entero methodsFor: 'arithmetic operations' stamp: 'HernanWilkinson 5/7/2016 23:13'!
 * aMultiplier 
 	
-	(aMultiplier isKindOf: self class) ifTrue: 
-		[^self class with: value * aMultiplier integerValue. ]
-	ifFalse: 
-		[^aMultiplier class with: (self * aMultiplier numerator) over: aMultiplier denominator. ]
+	^self class with: value * aMultiplier integerValue
 	! !
 
-!Entero methodsFor: 'arithmetic operations' stamp: 'ma 4/19/2023 00:06:40'!
+!Entero methodsFor: 'arithmetic operations' stamp: 'HernanWilkinson 5/7/2016 23:13'!
 + anAdder 
 	
-	(anAdder isKindOf: self class) ifTrue: 
-		[^self class with: value + anAdder integerValue]
-	ifFalse: 
-		[	| newNumerator newDenominator |
-			
-			newNumerator  := (self * anAdder denominator) + anAdder numerator.
-			newDenominator := anAdder denominator.
-				
-			^anAdder class with: newNumerator over: newDenominator. ]
+	^self class with: value + anAdder integerValue
 ! !
 
 !Entero methodsFor: 'arithmetic operations' stamp: 'NR 9/23/2018 23:40:37'!
@@ -495,28 +570,27 @@ Numero subclass: #Fraccion
 	poolDictionaries: ''
 	category: 'Numero-Exercise'!
 
-!Fraccion methodsFor: 'arithmetic operations' stamp: 'ma 4/19/2023 00:20:56'!
-* aMultiplier 
+!Fraccion methodsFor: 'as yet unclassified' stamp: 'ma 4/18/2023 21:22:07'!
+negated
 
-	(aMultiplier isKindOf: self class) ifTrue:	
-		[^ (numerator * aMultiplier numerator) / (denominator * aMultiplier denominator). ]
-	ifFalse: 
-		[^ aMultiplier * self]
+	^self class with: numerator * (self class with: -1) over: denominator! !
+
+
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'HernanWilkinson 5/7/2016 23:14'!
+* aMultiplier 
+	
+	^(numerator * aMultiplier numerator) / (denominator * aMultiplier denominator)
 	! !
 
-!Fraccion methodsFor: 'arithmetic operations' stamp: 'ma 4/19/2023 00:10:03'!
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'HernanWilkinson 5/7/2016 23:14'!
 + anAdder 
 	
-	(anAdder isKindOf: self class) ifTrue:
-		
-		[| newNumerator newDenominator |
+	| newNumerator newDenominator |
 	
-		newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
-		newDenominator := denominator * anAdder denominator.
-		
-		^ newNumerator / newDenominator. ]
+	newNumerator := (numerator * anAdder denominator) + (denominator * anAdder numerator).
+	newDenominator := denominator * anAdder denominator.
 	
-	ifFalse: [^ anAdder + self. ]! !
+	^newNumerator / newDenominator ! !
 
 !Fraccion methodsFor: 'arithmetic operations' stamp: 'NR 9/23/2018 23:43:50'!
 - aSubtrahend 
