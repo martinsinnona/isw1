@@ -388,15 +388,26 @@ Numero subclass: #Entero
 			^anAdder class with: newNumerator over: newDenominator. ]
 ! !
 
-!Entero methodsFor: 'arithmetic operations' stamp: 'NR 9/23/2018 23:40:37'!
+!Entero methodsFor: 'arithmetic operations' stamp: 'ma 4/19/2023 17:39:46'!
 - aSubtrahend 
 	
-	^ self class with: value - aSubtrahend integerValue.! !
+	(aSubtrahend isKindOf: self class) ifTrue:
+		[^ self class with: value - aSubtrahend integerValue. ]
+	ifFalse: 
+		[	| newNumerator newDenominator |
+			
+			newNumerator  := (self * aSubtrahend denominator) - aSubtrahend numerator.
+			newDenominator := aSubtrahend denominator.
+				
+			^aSubtrahend class with: newNumerator over: newDenominator. ]! !
 
-!Entero methodsFor: 'arithmetic operations' stamp: 'HernanWilkinson 5/7/2016 23:14'!
+!Entero methodsFor: 'arithmetic operations' stamp: 'ma 4/19/2023 17:22:40'!
 / aDivisor 
 	
-	^Fraccion with: self over: aDivisor! !
+	(aDivisor isKindOf: self class) ifTrue:
+		[^ Fraccion with: self over: aDivisor. ]
+	ifFalse: 
+		[^ self * (Fraccion with: aDivisor denominator over: aDivisor numerator)]! !
 
 !Entero methodsFor: 'arithmetic operations' stamp: 'HernanWilkinson 5/7/2016 21:55'!
 // aDivisor 
@@ -518,21 +529,28 @@ Numero subclass: #Fraccion
 	
 	ifFalse: [^ anAdder + self. ]! !
 
-!Fraccion methodsFor: 'arithmetic operations' stamp: 'NR 9/23/2018 23:43:50'!
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'ma 4/19/2023 17:56:16'!
 - aSubtrahend 
 	
-	| newNumerator newDenominator |
+	(aSubtrahend isKindOf: self class) ifTrue:
 	
-	newNumerator := (numerator * aSubtrahend denominator) - (denominator * aSubtrahend numerator).
-	newDenominator := denominator * aSubtrahend denominator.
-	
-	^newNumerator / newDenominator 
+		[| newNumerator newDenominator |
+		
+		newNumerator := (numerator * aSubtrahend denominator) - (denominator * aSubtrahend numerator).
+		newDenominator := denominator * aSubtrahend denominator.
+		
+		^newNumerator / newDenominator. ]
+	ifFalse:
+		[^ self + (aSubtrahend class with: (aSubtrahend integerValue negated))]
 ! !
 
-!Fraccion methodsFor: 'arithmetic operations' stamp: 'HernanWilkinson 5/7/2016 23:14'!
+!Fraccion methodsFor: 'arithmetic operations' stamp: 'ma 4/19/2023 17:32:03'!
 / aDivisor 
-	
-	^(numerator * aDivisor denominator) / (denominator * aDivisor numerator)! !
+
+	(aDivisor isKindOf: self class) ifTrue:	
+		[^ (numerator * aDivisor denominator) / (denominator * aDivisor numerator). ]
+	ifFalse: 
+		[^ self * (self class with: (Entero with: 1) over: aDivisor). ]! !
 
 
 !Fraccion methodsFor: 'comparing' stamp: 'HernanWilkinson 5/7/2016 20:42'!
