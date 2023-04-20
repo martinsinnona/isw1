@@ -546,13 +546,13 @@ isNegative
 
 	^ false! !
 
-!Cero methodsFor: 'as yet unclassified' stamp: 'ma 4/20/2023 01:01:30'!
-thatDivides: aDividend withGcd: gcd
+!Cero methodsFor: 'as yet unclassified' stamp: 'ma 4/20/2023 01:04:35'!
+thatDivides: aDividend
 
 	^ self error: Fraccion canNotDivideByZeroErrorDescription.! !
 
-!Cero methodsFor: 'as yet unclassified' stamp: 'ma 4/20/2023 01:01:33'!
-thatIsDividedBy: aDivisor withGcd: gcd
+!Cero methodsFor: 'as yet unclassified' stamp: 'ma 4/20/2023 01:04:58'!
+thatIsDividedBy: aDivisor
 
 	^ Entero with: 0.! !
 
@@ -583,13 +583,13 @@ initializeWith: aValue
 isNegative
 	^ false! !
 
-!MayorQueUno methodsFor: 'as yet unclassified' stamp: 'ma 4/20/2023 00:59:45'!
-thatDivides: aDividend withGcd: gcd
+!MayorQueUno methodsFor: 'as yet unclassified' stamp: 'ma 4/20/2023 01:05:07'!
+thatDivides: aDividend
 
-	^ aDividend thatIsDividedBy: self withGcd: gcd! !
+	^ aDividend thatIsDividedBy: self! !
 
-!MayorQueUno methodsFor: 'as yet unclassified' stamp: 'ma 4/20/2023 01:00:24'!
-thatIsDividedBy: aDivisor withGcd: gcd
+!MayorQueUno methodsFor: 'as yet unclassified' stamp: 'ma 4/20/2023 01:05:15'!
+thatIsDividedBy: aDivisor
 
 	^Fraccion coprimesWith: self over: aDivisor.
 	! !
@@ -618,12 +618,12 @@ initializeWith: aValue
 isNegative
 	^ true! !
 
-!Negativo methodsFor: 'as yet unclassified' stamp: 'ma 4/20/2023 00:29:54'!
-thatDivides: aDividend withGcd: gcd
-	^ (aDividend negated) thatIsDividedBy: self negated withGcd: gcd.! !
+!Negativo methodsFor: 'as yet unclassified' stamp: 'ma 4/20/2023 01:05:25'!
+thatDivides: aDividend
+	^ (aDividend negated) thatIsDividedBy: self negated! !
 
-!Negativo methodsFor: 'as yet unclassified' stamp: 'ma 4/20/2023 01:00:24'!
-thatIsDividedBy: aDivisor withGcd: gcd
+!Negativo methodsFor: 'as yet unclassified' stamp: 'ma 4/20/2023 01:05:31'!
+thatIsDividedBy: aDivisor
 
 	^Fraccion coprimesWith: self over: aDivisor.! !
 
@@ -649,13 +649,13 @@ initializeWith: aValue
 isNegative
 	^ false! !
 
-!Uno methodsFor: 'as yet unclassified' stamp: 'ma 4/20/2023 01:02:22'!
-thatDivides: aDividend withGcd: gcd
+!Uno methodsFor: 'as yet unclassified' stamp: 'ma 4/20/2023 01:05:38'!
+thatDivides: aDividend
 
 	^ aDividend. ! !
 
-!Uno methodsFor: 'as yet unclassified' stamp: 'ma 4/20/2023 01:00:24'!
-thatIsDividedBy: aDivisor withGcd: gcd
+!Uno methodsFor: 'as yet unclassified' stamp: 'ma 4/20/2023 01:05:44'!
+thatIsDividedBy: aDivisor
 
 	^Fraccion coprimesWith: self over: aDivisor. ! !
 
@@ -815,7 +815,7 @@ coprimesWith: aDividend over: aDivisor
 	^self new initializeWith: aDividend over: aDivisor.
 	! !
 
-!Fraccion class methodsFor: 'intance creation' stamp: 'ma 4/20/2023 01:01:20'!
+!Fraccion class methodsFor: 'intance creation' stamp: 'ma 4/20/2023 01:06:00'!
 with: aDividend over: aDivisor
 
 	|numerator denominator greatestCommonDivisor|
@@ -825,5 +825,5 @@ with: aDividend over: aDivisor
 	numerator := aDividend // greatestCommonDivisor.
 	denominator := aDivisor // greatestCommonDivisor.
 	
-	^denominator thatDivides: numerator withGcd: greatestCommonDivisor.
+	^denominator thatDivides: numerator.
 	! !
