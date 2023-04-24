@@ -282,6 +282,42 @@ test07CanNotFindIfPrefixHasWhitespaces
 
   ! !
 
+!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'ma 4/24/2023 08:55:47'!
+test08FindDoNotFindAnything
+
+	    | stack modelResult |
+    
+    stack := OOStack new.
+    modelResult := OrderedCollection new.
+    stack 
+        push: 'dog is walking';
+        push: 'cat is eating';
+        push: 'doctor is working';
+        push: 'Document is easy'.
+            
+    self assert: (SentenceFinderByPrefix new findElementWithPrefix: 'al' inStack: stack) = modelResult.! !
+
+!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'ma 4/24/2023 09:01:03'!
+test09FindEverything
+
+	    | stack modelResult |
+    
+	stack := OOStack new.
+	modelResult := OrderedCollection new.
+	
+	modelResult 
+		add: 'document is easy';
+		add: 'doctor is working';
+		add: 'dog is walking'.
+
+
+	stack 
+		push: 'dog is walking';
+		push: 'doctor is working';
+		push: 'document is easy'.
+            
+    self assert: (SentenceFinderByPrefix new findElementWithPrefix: 'do' inStack: stack) = modelResult.! !
+
 
 !classDefinition: #OOStack category: 'Stack-Exercise'!
 Object subclass: #OOStack
