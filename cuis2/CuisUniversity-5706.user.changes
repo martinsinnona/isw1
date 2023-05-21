@@ -1669,3 +1669,196 @@ ERROR!
 ----SNAPSHOT----(27 April 2023 20:01:26) CuisUniversity-5706.image priorSource: 8804329!
 
 ----SNAPSHOT----(27 April 2023 20:01:38) CuisUniversity-5706.image priorSource: 8834779!
+
+----STARTUP---- (8 May 2023 21:35:37) as /home/martin/Desktop/facu/Inge I/isw1/cuis2/CuisUniversity-5706.image!
+
+
+!classRemoval: #TDDBabyStepsRot13Test stamp: 'ma 5/8/2023 21:35:54'!
+TestCase subclass: #TDDBabyStepsRot13Test
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TDDBabyStepsGameRot13'!
+
+!classRemoval: #TDDBabyStepsGameView stamp: 'ma 5/8/2023 21:35:56'!
+Object subclass: #TDDBabyStepsGameView
+	instanceVariableNames: 'model stepResult gameJourney'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TDDBabyStepsGame'!
+
+!classRemoval: #OnPrematureDecisionStep stamp: 'ma 5/8/2023 21:35:56'!
+TDDBabyStepsGameState subclass: #OnPrematureDecisionStep
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TDDBabyStepsGame'!
+
+!classRemoval: #OnNormalStep stamp: 'ma 5/8/2023 21:35:56'!
+TDDBabyStepsGameState subclass: #OnNormalStep
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TDDBabyStepsGame'!
+
+!classRemoval: #GameStarting stamp: 'ma 5/8/2023 21:35:56'!
+TDDBabyStepsGameState subclass: #GameStarting
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TDDBabyStepsGame'!
+
+!classRemoval: #GameEnded stamp: 'ma 5/8/2023 21:35:57'!
+TDDBabyStepsGameState subclass: #GameEnded
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TDDBabyStepsGame'!
+
+!classRemoval: #TDDBabyStepsGameState stamp: 'ma 5/8/2023 21:35:57'!
+Object subclass: #TDDBabyStepsGameState
+	instanceVariableNames: 'game'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TDDBabyStepsGame'!
+
+!classRemoval: #TDDBabyStepsGameBase stamp: 'ma 5/8/2023 21:35:57'!
+Object subclass: #TDDBabyStepsGameBase
+	instanceVariableNames: 'name casesToTest currentStep currentStepReturnMessage category score currentTest journey definition extraTest state prematureDecisionVerifierStrategy'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TDDBabyStepsGame'!
+
+!classRemoval: #TDDBabyStepsGameRot13 stamp: 'ma 5/8/2023 21:35:57'!
+TDDBabyStepsGame subclass: #TDDBabyStepsGameRot13
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TDDBabyStepsGame'!
+
+!classRemoval: #TDDBabyStepsGamePrimeFactors stamp: 'ma 5/8/2023 21:35:57'!
+TDDBabyStepsGame subclass: #TDDBabyStepsGamePrimeFactors
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TDDBabyStepsGame'!
+
+!classRemoval: #TDDBabyStepsGameDemo stamp: 'ma 5/8/2023 21:35:58'!
+TDDBabyStepsGame subclass: #TDDBabyStepsGameDemo
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TDDBabyStepsGame'!
+
+!classRemoval: #TDDBabyStepsGameCuentaBancaria stamp: 'ma 5/8/2023 21:35:58'!
+TDDBabyStepsGame subclass: #TDDBabyStepsGameCuentaBancaria
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TDDBabyStepsGame'!
+
+!classRemoval: #TDDBabyStepsGameContador stamp: 'ma 5/8/2023 21:35:58'!
+TDDBabyStepsGame subclass: #TDDBabyStepsGameContador
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TDDBabyStepsGame'!
+
+!classRemoval: #TDDBabyStepsGameAnagrams stamp: 'ma 5/8/2023 21:35:58'!
+TDDBabyStepsGame subclass: #TDDBabyStepsGameAnagrams
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TDDBabyStepsGame'!
+
+!classRemoval: #TDDBabyStepsGame stamp: 'ma 5/8/2023 21:35:58'!
+Object subclass: #TDDBabyStepsGame
+	instanceVariableNames: 'game'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TDDBabyStepsGame'!
+
+!classRemoval: #TDDBabyStepsGameWindow stamp: 'ma 5/8/2023 21:35:58'!
+SystemWindow subclass: #TDDBabyStepsGameWindow
+	instanceVariableNames: 'stepResultTextBoxMorph nextButtonMorph forceNextButtonMorph definitionButtonMorph gameJourneyTextBoxMorph testNumberLabel pointsLabel helpButtonMorph lastStepPoints'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TDDBabyStepsGame'!
+
+----End fileIn of /home/martin/Desktop/facu/Inge I/isw1/cuis2/ISW1-2023-1C-Parcial-1.st----!
+
+----STARTUP---- (8 May 2023 21:38:22) as /home/martin/Desktop/facu/Inge I/isw1/cuis2/CuisUniversity-5706.image!
+
+
+----End fileIn of /home/martin/Desktop/facu/Inge I/isw1/cuis2/ISW1-2023-1C-Parcial-1.st----!
+
+!testRun: #TestDePerforación #test01CuandoExcavaSueloArenosoConMechaSoftRemueveCapaArenosa stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test02CuandoExcavaSueloTierraConMechaSoftNoModificaElSuelo stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test03CuandoExcavaConcretoConMechaSoftSeRompeLaMecha stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test04CuandoExcavaSueloArenosoConMechaWidiaRemueveCapaArenosa stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test05CuandoExcavaSueloTierraConMechaWidiaEnDosImpactosTransformaLaCapaEnArenoso stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test06CuandoExcavaSueloConcretoConMechaWidiaEnTresImpactosRompeLaMecha stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test07CuandoExcavaSueloArenosoConMechaDiamanteRompeLaMecha stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test08CuandoExcavaSueloTierraConMechaDiamanteRemueveCapa stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test09CuandoExcavaSueloConcretoConMechaDiamanteBajaUnDecimoDeResistencia stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test10CuandoRemueveLaCapaYHayPiedrasLasRecolectaEnSuContainer stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test11CuandoRemueveLaCapaYNoHayNadaNoRecogeNada stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test12NoPuedePerforarSinMecha stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test13PuedeCalcularProfundidadDelSuelo stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test14PuedeContarLasCapasDeTipoArenoso stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test15PuedeContarLasCapasDeTipoTierra stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test16PuedeContarLasCapasDeTipoConcreto stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test17PuedeCalcularProfundidadHastaPrimerCapaDeTipoArenoso stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test18PuedeCalcularProfundidadHastaPrimerCapaDeTipoTierra stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test19PuedeCalcularProfundidadHastaPrimerCapaDeTipoConcreto stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test20DobleCapaArenosaAlPrincipioCausaError stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test21DobleCapaDeTierraAlFinalCausaError stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test22TripleCapaDeTierraAlMedioCausaError stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+!testRun: #TestDePerforación #test23DobleCapaArenosaAlPrincipioCausaError stamp: 'ma 5/8/2023 21:38:45'!
+PASSED!
+
+----SNAPSHOT----(8 May 2023 21:38:51) CuisUniversity-5706.image priorSource: 8834869!
