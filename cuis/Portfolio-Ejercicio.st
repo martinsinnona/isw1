@@ -96,6 +96,11 @@ Object subclass: #AccountTransaction
 	poolDictionaries: ''
 	category: 'Portfolio-Ejercicio'!
 
+!AccountTransaction methodsFor: 'value' stamp: 'ma 5/15/2023 20:20:39'!
+modifyBalance: aBalance
+
+	self subclassResponsibility ! !
+
 !AccountTransaction methodsFor: 'value' stamp: 'HernanWilkinson 9/12/2011 12:25'!
 value 
 
@@ -125,11 +130,17 @@ AccountTransaction subclass: #Deposit
 	poolDictionaries: ''
 	category: 'Portfolio-Ejercicio'!
 
-!Deposit methodsFor: 'initialization' stamp: 'HernanWilkinson 7/13/2011 18:45'!
+!Deposit methodsFor: 'initialization' stamp: 'ma 5/15/2023 20:04:22'!
 initializeFor: aValue
 
-	value := aValue ! !
+	value := aValue.
+! !
 
+
+!Deposit methodsFor: 'value' stamp: 'ma 5/15/2023 20:20:05'!
+modifyBalance: aBalance
+
+	^aBalance + self value.! !
 
 !Deposit methodsFor: 'value' stamp: 'HernanWilkinson 7/13/2011 18:38'!
 value
@@ -155,11 +166,17 @@ AccountTransaction subclass: #Withdraw
 	poolDictionaries: ''
 	category: 'Portfolio-Ejercicio'!
 
-!Withdraw methodsFor: 'initialization' stamp: 'HernanWilkinson 7/13/2011 18:46'!
+!Withdraw methodsFor: 'initialization' stamp: 'ma 5/15/2023 20:04:15'!
 initializeFor: aValue
 
-	value := aValue ! !
+	value := aValue.
+! !
 
+
+!Withdraw methodsFor: 'value' stamp: 'ma 5/15/2023 20:20:21'!
+modifyBalance: aBalance
+
+	^aBalance - self value.! !
 
 !Withdraw methodsFor: 'value' stamp: 'HernanWilkinson 7/13/2011 18:33'!
 value
@@ -203,10 +220,16 @@ transactions
 	^ transactions copy! !
 
 
-!ReceptiveAccount methodsFor: 'balance' stamp: 'HAW 5/23/2019 15:19:32'!
+!ReceptiveAccount methodsFor: 'balance' stamp: 'ma 5/15/2023 20:21:33'!
 balance
 
-	^transactions sum: [ :aTransaction | aTransaction value ] ifEmpty: [ 0 ]! !
+	|total|
+	
+	total := 0.
+	
+	transactions do: [:aTransaction | total := aTransaction modifyBalance: total].
+
+	^total.! !
 
 
 !ReceptiveAccount methodsFor: 'testing' stamp: 'NR 10/17/2019 03:28:43'!
